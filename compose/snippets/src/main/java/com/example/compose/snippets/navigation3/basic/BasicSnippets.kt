@@ -104,7 +104,8 @@ fun NavExample() {
         entryProvider = { key ->
             when (key) {
                 is Home -> NavEntry(key) {
-                    ContentGreen("Welcome to Nav3") {
+                    Column {
+                        Text("Welcome to Nav3")
                         Button(onClick = {
                             backStack.add(Product("123"))
                         }) {
@@ -114,7 +115,7 @@ fun NavExample() {
                 }
 
                 is Product -> NavEntry(key) {
-                    ContentBlue("Product ${key.id} ")
+                    Text("Product ${key.id} ")
                 }
 
                 else -> NavEntry(Unit) { Text("Unknown route") }
